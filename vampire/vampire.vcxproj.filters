@@ -18,7 +18,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="main.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="res.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -26,5 +29,10 @@
     <Image Include="0x72_DungeonTilesetII_v1.4\0x72_DungeonTilesetII_v1.4.png">
       <Filter>리소스 파일\tilesets</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="res.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

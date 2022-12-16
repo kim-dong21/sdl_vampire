@@ -74,13 +74,13 @@
     <LinkIncremental>true</LinkIncremental>
     <ExternalIncludePath>C:\VcLib\SDL2-devel-2.24.1-VC\SDL2-2.24.1\include;$(ExternalIncludePath);C:\VcLib\SDL2-devel-2.24.1-VC\SDL2-2.24.1\include</ExternalIncludePath>
     <IncludePath>C:\VcLib\SDL2-devel-2.24.1-VC\SDL2-2.24.1\include;C:\VcLib\SDL2_ttf-2.0.12\include;C:\VcLib\SDL2_gfx;C:\VcLib\SDL2_mixer-2.0.4\include;C:\VcLib\SDL2_image-2.0.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\VcLib\SDL2_image-2.0.5\lib\x86;C:\VcLib\SDL2_mixer-2.0.4\lib\x86;C:\VcLib\SDL2_ttf-2.0.12\lib\x86;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.22000.0\um\x86;C:\VcLib\SDL2-devel-2.24.1-VC\SDL2-2.24.1\lib\x86;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\VcLib\SDL2_image-2.0.5\lib\x86;C:\VcLib\SDL2_mixer-2.0.4\lib\x86;C:\VcLib\SDL2_ttf-2.0.12\lib\x86;C:\VcLib\SDL2-devel-2.24.1-VC\SDL2-2.24.1\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <ExternalIncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;C:\VcLib\SDL2-devel-2.24.1-VC\SDL2-2.24.1\include</ExternalIncludePath>
     <IncludePath>C:\VcLib\SDL2-devel-2.24.1-VC\SDL2-2.24.1\include;C:\VcLib\SDL2_ttf-2.0.12\include;C:\VcLib\SDL2_gfx;C:\VcLib\SDL2_mixer-2.0.4\include;C:\VcLib\SDL2_image-2.0.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\VcLib\SDL2_image-2.0.5\lib\x86;C:\VcLib\SDL2_mixer-2.0.4\lib\x86;C:\VcLib\SDL2_ttf-2.0.12\lib\x86;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.22000.0\um\x86;C:\VcLib\SDL2-devel-2.24.1-VC\SDL2-2.24.1\lib\x86;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\VcLib\SDL2_image-2.0.5\lib\x86;C:\VcLib\SDL2_mixer-2.0.4\lib\x86;C:\VcLib\SDL2_ttf-2.0.12\lib\x86;C:\VcLib\SDL2-devel-2.24.1-VC\SDL2-2.24.1\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -94,11 +94,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\VcLib\SDL2-devel-2.24.1-VC\SDL2-2.24.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\VcLib\SDL2_image-2.0.5\lib\x86;C:\VcLib\SDL2-devel-2.24.1-VC\SDL2-2.24.1\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -113,6 +115,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\VcLib\SDL2-devel-2.24.1-VC\SDL2-2.24.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -120,6 +123,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\VcLib\SDL2_image-2.0.5\lib\x86;C:\VcLib\SDL2-devel-2.24.1-VC\SDL2-2.24.1\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -155,10 +159,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="main.c" />
+    <ClCompile Include="res.c" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="0x72_DungeonTilesetII_v1.4\0x72_DungeonTilesetII_v1.4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="res.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

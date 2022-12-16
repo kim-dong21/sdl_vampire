@@ -1,0 +1,8 @@
+﻿  res.c
+  Generating code
+  5 of 8 functions (62.5%) were compiled, the rest were copied from previous compilation.
+    4 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+E:\vampire\vampire\res.c(23): warning C4715: 'InitTileset': not all control paths return a value
+  Finished generating code
+  vampire.vcxproj -> E:\vampire\Release\vampire.exe
