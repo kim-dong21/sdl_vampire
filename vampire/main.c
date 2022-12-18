@@ -10,12 +10,12 @@ SDL_Window* window;
 	//The surface contained by the window
 SDL_Surface* screenSurface;
 SDL_Surface* image;
-SDL_Surface* tempSur;
 SDL_Texture* texture;
-SDL_Texture* sprite;
 SDL_Renderer* renderer;
 SDL_Event event;
+extern Texture textures[TILESET_SIZE];
 int run = 1;
+int cnt = 0;
 int main(int argc, char* args[])
 {
 	//The window we'll be rendering to
@@ -32,25 +32,18 @@ int main(int argc, char* args[])
 		//Create window
 		window = SDL_CreateWindow("SDL INIT", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 		renderer = SDL_CreateRenderer(window, -1, 0);
-		image = IMG_Load("./0x72_DungeonTilesetII_v1.4/0x72_DungeonTilesetII_v1.4.png");
-		texture = SDL_CreateTextureFromSurface(renderer, image);
 		
 
 		
-		for (int i = 0,x=192,y=196,w=16,h=28; i < 4; i++,x+=16)
-		{
-			rect[i].x = x;
-			rect[i].y = y;
-			rect[i].w = w;
-			rect[i].h = h;
-		}
-
-		InitTileset();
 
 		SDL_Rect dst = {0,0,32,48};
+		SDL_Rect dst2 = { 50,50,32,48 };
 		int i = 0;
 		float fps = 0;
 		int startTick = 0;
+		
+		texture=loadSDLTexture(TILESET_PNG_PATH);
+		loadTileset(TILESET_CHAR_LIST_PATH, texture);
 
 		if (window == NULL)
 		{
@@ -70,8 +63,6 @@ int main(int argc, char* args[])
 						case SDLK_DOWN:
 							dst.y += 30;
 						}
-						
-					
 
 					}
 
@@ -80,14 +71,17 @@ int main(int argc, char* args[])
 				startTick = SDL_GetTicks();
 
 				SDL_Delay(120);
-				fps = 1000.0f / (float)(SDL_GetTicks() - startTick);
+				fps = 10000.0f / (float)(SDL_GetTicks() - startTick);
 				printf("%f\n",fps);
 				SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
 				SDL_RenderClear(renderer);
-				SDL_RenderCopy(renderer, texture, &rect[i], &dst);
+				SDL_RenderCopy(renderer, textures->origin, &textures[20].crops[cnt], &dst);
+				SDL_RenderCopy(renderer, textures->origin, &textures[23].crops[cnt], &dst2);
+				cnt++;
+				if (cnt> 3)cnt = 0;
 				SDL_RenderPresent(renderer);
-				i++;
-				if (i > 3)i = 0;
+
+				
 			}
 		}
 	}

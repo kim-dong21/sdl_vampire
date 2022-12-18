@@ -1,10 +1,15 @@
 #pragma once
+#include <SDL.h>
 
 
-#define TILESET_PATH "./0x72_DungeonTilesetII_v1.4/0x72_DungeonTilesetII_v1.4.png"
+#define TILESET_PNG_PATH "./0x72_DungeonTilesetII_v1.4/0x72_DungeonTilesetII_v1.4.png"
+#define TILESET_CHAR_LIST_PATH "./0x72_DungeonTilesetII_v1.4/characters.txt"
 #define TILESET_SIZE 100
+
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 800
+
+#define TEXTURE_SIZE 1024
 
 #define wall_top_left
 #define wall_top_mid
@@ -199,4 +204,27 @@
 
 
 
-int InitTileset();
+int loadTileset(const char* path, SDL_Texture* origin);
+SDL_Texture* loadSDLTexture(const char* path);
+
+typedef struct {
+	SDL_Texture* origin;
+	int h, w, f;
+	SDL_Rect* crops;
+}Texture;
+
+typedef struct {
+	Texture* origin;
+	int ad, time;
+	int num;
+
+}Weapon;
+
+typedef struct {
+	Texture* texture;
+	int x, y;
+	int hp, sp;
+	Weapon* wp;
+
+}Player;
+
